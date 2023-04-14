@@ -3,23 +3,25 @@ function getValues() {
   // decide what to do with it
   let userInput = document.getElementById("message").value;
 
-  let reversedInput = reverseString(userInput);
+  let reversedInput = checkForPalindrome(userInput);
 
-  displayString(reversedInput);
+  displayResults(reversedInput);
   // you are now calling the function to line 26
 }
 
-function reverseString(message) {
-  // take a string, return it in reverse aka business logic
-  let reversedMessage = "";
+function checkForPalindrome(string) {
+//   let reversedMessage = "";
+  let strLength = string.length;
 
-  for (let index = message.length - 1; index >= 0; index--) {
-    reversedMessage += message[index];
+  for (let index = 0; index < strLength / 2; index++) {
+    if (string[index] !== string[strLength - 1 - index]); {
+        return false;
+    }
   }
-  return reversedMessage;
+  return true;
 }
 
-function displayString(reversedMessage) {
+function displayResults(reversedMessage) {
   // show the string on page aka view function
   document.getElementById("msg").textContent = reversedMessage;
   document.getElementById("alert").classList.remove("d-none");
