@@ -107,18 +107,41 @@
         <div class="col-lg-8 col-12">
           <pre class="line-numbers">
                     <code class="language-js">
-function displayMessage() {
-    let msg = document.getElementById('message').value;
-        //alert(msg);
-    
-        Swal.fire(
-            {
-                backdrop: false,
-                title: 'Top Spot',
-                text: msg
-            }
-        );
+function getValues() {
+  let userInput = document.getElementById("message").value;
+
+  let reversedInput = checkForPalindrome(
+    userInput.toLowerCase().replaceAll(" ", "")
+  );
+  displayResults(reversedInput);
+}
+
+function checkForPalindrome(string) {
+  let strLength = string.length;
+
+  for (let index = 0; index < strLength / 2; index++) {
+    if (string[index] !== string[strLength - 1 - index]) {
+      return ""; // false
     }
+  }
+  return string; // true
+}
+
+function displayResults(reversedInput) {
+  if (reversedInput) {
+    document.getElementById("msg").textContent = reversedInput;
+  } else {
+    document.getElementById("msg2").textContent = reversedInput;
+  }
+
+  if (reversedInput) {
+    document.getElementById("alert").classList.remove("d-none");
+    document.getElementById("alerttwo").classList.add("d-none");
+  } else {
+    document.getElementById("alerttwo").classList.remove("d-none");
+    document.getElementById("alert").classList.add("d-none");
+  }
+}
                     </code>
                 </pre>
         </div>
