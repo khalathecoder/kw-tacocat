@@ -60,6 +60,12 @@
     background: var(--kw-primary-color);
   }
 
+  .navbar-brand {
+    font-size: 2em;
+    font-family: "Fira Sans", sans-serif;
+    text-transform: uppercase;
+  }
+
   footer {
         background: var(--kw-primary-color);
         color: var(--kw-light-color);
@@ -93,4 +99,5 @@
 
   .appLogo {
     max-width: 400px;
+    border-radius: 30px;
   }
