@@ -3,7 +3,8 @@ function getValues() {
   // decide what to do with it
   let userInput = document.getElementById("message").value;
 
-  let reversedInput = checkForPalindrome(userInput.replaceAll(' ', ''));
+  let reversedInput = checkForPalindrome(userInput.toLowerCase().replaceAll(' ', ''));
+  //added the replaceAll for removing spaces
 
   displayResults(reversedInput);
   // you are now calling the function
@@ -15,10 +16,10 @@ function checkForPalindrome(string) {
 
   for (let index = 0; index < strLength / 2; index++) {
     if (string[index] !== string[strLength - 1 - index]) {
-        return false;
+        return '';  // false
     }; 
   }
-  return "Your phrase reversed is:" ;
+  return string; // true
 }
 
 function displayResults(reversedInput) {
