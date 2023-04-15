@@ -3,34 +3,35 @@ function getValues() {
   // decide what to do with it
   let userInput = document.getElementById("message").value;
 
-  let reversedInput = checkForPalindrome(userInput.toLowerCase().replaceAll(' ', ''));
-  //added the replaceAll for removing spaces
+  let reversedInput = checkForPalindrome(
+    userInput.toLowerCase().replaceAll(" ", "")
+  );
+  //added the replaceAll for removing spaces and toLowerCase for case omission
 
   displayResults(reversedInput);
   // you are now calling the function
 }
 
 function checkForPalindrome(string) {
-
   let strLength = string.length;
 
   for (let index = 0; index < strLength / 2; index++) {
     if (string[index] !== string[strLength - 1 - index]) {
-        return '';  // false
-    }; 
+      return ""; // false
+    }
   }
   return string; // true
 }
 
 function displayResults(reversedInput) {
   // show the string on page aka view function
-  if(reversedInput) {
+  if (reversedInput) {
     document.getElementById("msg").textContent = reversedInput;
   } else {
     document.getElementById("msg2").textContent = reversedInput;
   }
-  
-  if(reversedInput){
+
+  if (reversedInput) {
     document.getElementById("alert").classList.remove("d-none");
     document.getElementById("alerttwo").classList.add("d-none");
   } else {
@@ -41,6 +42,6 @@ function displayResults(reversedInput) {
 
 // Swal.fire({
 //   backdrop: false,
-//   title: "TacoCat",
+//   title: "Top Spot",
 //   text: msg,
 // });
