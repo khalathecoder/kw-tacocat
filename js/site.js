@@ -17,10 +17,10 @@ function checkForPalindrome(string) {
 
   for (let index = 0; index < strLength / 2; index++) {
     if (string[index] !== string[strLength - 1 - index]) {
-      return ""; // false
+      return ''; // false
     }
   }
-  return string; // true
+  return `You entered "${string}" which is a palindrome.`; // true
 }
 
 function displayResults(reversedInput) {
