@@ -146,9 +146,10 @@ function displayResults(reversedInput) {
                 </pre>
         </div>
         <div class="col-lg-4 col-12">
-          <p>The code is structured in one function.</p>
-          <h5>displayMessage</h5>
-          <p>Prints out the message</p>
+          <h5>Explanation:</h5>
+          <p><i class="bi bi-journal-check"></i> getValues function is the entry point, AKA the controller function of the js file. Its purpose is to get the user input. In order to make the user input case insensitive and omit the spaces.</p>
+          <p><i class="bi bi-journal-check"></i> checkForPalindrome function generates the range of numbers to display, though it does not actually display the values yet. It is considered the logic of the function and incorporates a 'For' Javascript loop. The loop identifies the start and end value by indicating this in the parameters (), and runs based on the algorithm (let number = start; number <= end; number++) It will start at the first number, and end when the last number is less than or equal to the second number entered by the user. The number will increase based on the logic number++. Fun fact! number++ is short for 'number = number + 1'.</p>
+          <p><i class="bi bi-journal-check"></i> displayResults function places the generated numbers on the page. This function also includes the if/else statement to bold the even numbers. It states if the remainder (%) when divided by 2 is 0, it is considered an even number and will bold the numbers on the page. Else, when there is a remainder other than 0, it will display the numbers without the bold. The red color change was done through CSS using class="evenNumber".</p>
         </div>
       </div>
     </main>

@@ -3,9 +3,15 @@ function getValues() {
   // decide what to do with it
   let userInput = document.getElementById("message").value;
 
+  const regex = /[^a-z0-9]/gi
+    userInput = userInput.replace(regex, "");
+
   let reversedInput = checkForPalindrome(
     userInput.toLowerCase().replaceAll(" ", "")
+
+    
   );
+
   //added the replaceAll for removing spaces and toLowerCase for case omission
 
   displayResults(reversedInput);
@@ -15,9 +21,10 @@ function getValues() {
 function checkForPalindrome(string) {
   let strLength = string.length;
 
+
   for (let index = 0; index < strLength / 2; index++) {
     if (string[index] !== string[strLength - 1 - index]) {
-      return ''; // false
+      return; // false
     }
   }
   return `You entered "${string}" which is a palindrome.`; // true
