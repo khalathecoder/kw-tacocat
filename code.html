@@ -108,26 +108,40 @@
           <pre class="line-numbers">
                     <code class="language-js">
 function getValues() {
+  // get the users input aka entry point aka controller
+  // decide what to do with it
   let userInput = document.getElementById("message").value;
+
+  const regex = /[^a-z0-9]/gi
+    userInput = userInput.replace(regex, "");
+
 
   let reversedInput = checkForPalindrome(
     userInput.toLowerCase().replaceAll(" ", "")
+
+    
   );
+
+  //added the replaceAll for removing spaces and toLowerCase for case omission
+
   displayResults(reversedInput);
+  // you are now calling the function
 }
 
 function checkForPalindrome(string) {
   let strLength = string.length;
 
+
   for (let index = 0; index < strLength / 2; index++) {
     if (string[index] !== string[strLength - 1 - index]) {
-      return ""; // false
+      return; // false
     }
   }
-  return string; // true
+  return `You entered "${string}" which is a palindrome.`; // true
 }
 
 function displayResults(reversedInput) {
+  // show the string on page aka view function
   if (reversedInput) {
     document.getElementById("msg").textContent = reversedInput;
   } else {
@@ -141,15 +155,15 @@ function displayResults(reversedInput) {
     document.getElementById("alerttwo").classList.remove("d-none");
     document.getElementById("alert").classList.add("d-none");
   }
-}
+}                      
                     </code>
                 </pre>
         </div>
         <div class="col-lg-4 col-12">
           <h5>Explanation:</h5>
-          <p><i class="bi bi-journal-check"></i> getValues function is the entry point, AKA the controller function of the js file. Its purpose is to get the user input. In order to make the user input case insensitive and omit the spaces.</p>
-          <p><i class="bi bi-journal-check"></i> checkForPalindrome function generates the range of numbers to display, though it does not actually display the values yet. It is considered the logic of the function and incorporates a 'For' Javascript loop. The loop identifies the start and end value by indicating this in the parameters (), and runs based on the algorithm (let number = start; number <= end; number++) It will start at the first number, and end when the last number is less than or equal to the second number entered by the user. The number will increase based on the logic number++. Fun fact! number++ is short for 'number = number + 1'.</p>
-          <p><i class="bi bi-journal-check"></i> displayResults function places the generated numbers on the page. This function also includes the if/else statement to bold the even numbers. It states if the remainder (%) when divided by 2 is 0, it is considered an even number and will bold the numbers on the page. Else, when there is a remainder other than 0, it will display the numbers without the bold. The red color change was done through CSS using class="evenNumber".</p>
+          <p><i class="bi bi-journal-check"></i> getValues function is the entry point, AKA the controller function of the js file. Its purpose is to get the user input. Here, I convert each input to be user friendly for the next step. I used regex, toLowerCase and replaceAll to ensure spaces, case, numbers and special characters are ignored before moving to the next step.</p>
+          <p><i class="bi bi-journal-check"></i> checkForPalindrome function is considered the logic of the function and incorporates a 'For' Javascript loop. My first step is declaring the variable strLength. strLength is used in the For loop to obtain the length of the string. In this case, I used the idea that half of the string should be equal to the end half of the string, in order for it to be considered a palindrome, hence why in the logic, there is strLength / 2. The if statement translates as follows: if the string value at a particular index does not equal (!==) the string value starting at the end of the string, return as false. Otherwise, it will return true.</p>
+          <p><i class="bi bi-journal-check"></i> displayResults function places the results on the page for the user to see if what they have entered is a palindrome or not. In this case, I have two if/else statements that will display based on what was entered. Both messages are distinguished by id "alert/msg" versus "alerttwo/msg2," which are linked to the respect true or false statements when the user clicks the button. </p>
         </div>
       </div>
     </main>

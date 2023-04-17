@@ -6,6 +6,7 @@ function getValues() {
   const regex = /[^a-z0-9]/gi
     userInput = userInput.replace(regex, "");
 
+
   let reversedInput = checkForPalindrome(
     userInput.toLowerCase().replaceAll(" ", "")
 
