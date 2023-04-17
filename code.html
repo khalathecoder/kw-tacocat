@@ -108,24 +108,16 @@
           <pre class="line-numbers">
                     <code class="language-js">
 function getValues() {
-  // get the users input aka entry point aka controller
-  // decide what to do with it
   let userInput = document.getElementById("message").value;
 
   const regex = /[^a-z0-9]/gi
     userInput = userInput.replace(regex, "");
 
-
   let reversedInput = checkForPalindrome(
     userInput.toLowerCase().replaceAll(" ", "")
-
-    
   );
 
-  //added the replaceAll for removing spaces and toLowerCase for case omission
-
   displayResults(reversedInput);
-  // you are now calling the function
 }
 
 function checkForPalindrome(string) {
@@ -141,7 +133,6 @@ function checkForPalindrome(string) {
 }
 
 function displayResults(reversedInput) {
-  // show the string on page aka view function
   if (reversedInput) {
     document.getElementById("msg").textContent = reversedInput;
   } else {
